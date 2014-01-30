@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+# Exit cleanly from an early interrupt
+Signal.trap("INT") { exit 1 }
+
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
+
+require 'honor_codes'
+require 'honor_codes/cli'
+
+HonorCodes::CLI.start(ARGV, :debug => true)
