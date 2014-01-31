@@ -43,8 +43,8 @@ module HonorCodes
     end
 
     def interpret
-      license = Pathname.new license_path
-      YAML.load Base64.decode64(license.read)
+      license = File.read license_path
+      YAML.load Base64.decode64(license)
     end
   end
 
